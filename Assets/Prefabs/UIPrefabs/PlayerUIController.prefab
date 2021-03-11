@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1707088072385129652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707088072385129654}
+  - component: {fileID: 1707088072385129655}
+  - component: {fileID: 1707088072385129657}
+  - component: {fileID: 1707088072385129656}
+  m_Layer: 0
+  m_Name: PlayerUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707088072385129654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707088072385129652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 919.41125, y: 595.0462, z: -315.07822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707088072385129655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707088072385129652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4bd8581677ab5488558abcafe42d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RootInventoryPanel: {fileID: 0}
+  ItemPrefab: {fileID: 4676973094772377266, guid: f8875e95f52536a4d82d8cb6fa401083, type: 3}
+  InventoryItemHolderPref: {fileID: 1661231826346413456, guid: f740b94defe4ab640819f73251c10202, type: 3}
+  InventoryPanel: {fileID: 0}
+  items:
+  - {fileID: 11400000, guid: 1213ef08f10f48c4cb795f32578ad458, type: 2}
+  - {fileID: 11400000, guid: 1213ef08f10f48c4cb795f32578ad458, type: 2}
+  - {fileID: 11400000, guid: 1213ef08f10f48c4cb795f32578ad458, type: 2}
+  - {fileID: 11400000, guid: 1213ef08f10f48c4cb795f32578ad458, type: 2}
+  - {fileID: 11400000, guid: 52147ba3579e512458b3979bb4c7140e, type: 2}
+  - {fileID: 11400000, guid: 52147ba3579e512458b3979bb4c7140e, type: 2}
+  InfoPanel: {fileID: 0}
+  ButtonPanel: {fileID: 0}
+  Owner: {fileID: 0}
+  CountInRow: 5
+  Rows: 30
+  InventoryObject: {fileID: 0}
+  InteractionPanel: {fileID: 0}
+  QSlotsPanel: {fileID: 0}
+--- !u!114 &1707088072385129657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707088072385129652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6e971d67d2dec4f81372599eea7d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryPanel: {fileID: 0}
+--- !u!114 &1707088072385129656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707088072385129652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c071dd45312bc74184bab46cf068427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RootInventoryPanel: {fileID: 0}
+  ItemPrefab: {fileID: 4676973094772377266, guid: f8875e95f52536a4d82d8cb6fa401083, type: 3}
+  InventoryItemHolderPref: {fileID: 1661231826346413456, guid: f740b94defe4ab640819f73251c10202, type: 3}
+  InventoryPanel: {fileID: 0}
+  items: []
+  InfoPanel: {fileID: 0}
+  ButtonPanel: {fileID: 0}
+  Owner: {fileID: 0}
+  CountInRow: 3
+  Rows: 2
+  CountInRowForWeapon: 2
+  RowsForWeapon: 2
+  InventoryObject: {fileID: 0}
+  WeaponPanel: {fileID: 0}
