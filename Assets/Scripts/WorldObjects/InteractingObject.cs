@@ -29,4 +29,8 @@ public class InteractingObject : MonoBehaviour, IInteractable
         }
         Canvas.SetActive(true);
     }
-   
+    public virtual void OnExit()
+    {
+        Canvas.SetActive(false);
+    }
+}
