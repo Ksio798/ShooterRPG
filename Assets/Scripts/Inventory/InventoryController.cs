@@ -25,6 +25,7 @@ public class InventoryController : InventoryBase
     }
    void InteractWithInvPanel(GameObject interactable)
     {
+        Debug.Log("InteractWithInvPanel");
         WorldObjectsInventory inventory = interactable.GetComponentInParent<WorldObjectsInventory>();
         if(inventory != null)
         {
