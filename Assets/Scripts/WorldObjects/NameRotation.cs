@@ -15,6 +15,6 @@ public class NameRotation : MonoBehaviour
     {
         transform.LookAt(MainCamera.transform.position);
         //transform.eulerAngles = new Vector3(0, 180 + transform.eulerAngles.y, 0);
-        transform.eulerAngles = new Vector3(90 + transform.eulerAngles.x, 180 + transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3( -1*transform.eulerAngles.x, 180 + transform.eulerAngles.y, 0);
     }
 }

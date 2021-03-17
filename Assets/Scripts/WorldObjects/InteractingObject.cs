@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class InteractingObject : WorldObjectsInventory, IInteractable
+public class InteractingObject : MonoBehaviour, IInteractable
 {
    
     public GameObject Canvas;
@@ -38,4 +38,12 @@ public class InteractingObject : WorldObjectsInventory, IInteractable
     {
         text.text = "Press E to interact";
     } 
+    public void OnRay()
+    {
+        OnEnter();
+    }
+    public void OutRay()
+    {
+        Canvas.SetActive(false);
+    }
 }

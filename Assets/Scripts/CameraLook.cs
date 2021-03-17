@@ -23,8 +23,12 @@ public class CameraLook : MonoBehaviour
 
     float rotationYvelocity, rotationXvelocity;
     public Transform RightHandTarget;
+   
     private void Update()
     {
+        if (StaticVariables.CanMove)
+        {
+
         float mouseX = Input.GetAxis("Mouse X") * sensetivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensetivity * Time.deltaTime;
         TargetXRotation -= mouseY;
@@ -37,6 +41,7 @@ public class CameraLook : MonoBehaviour
         Player.transform.rotation = Quaternion.Euler(0, CurentYPosition, 0);
         Head.transform.localRotation = Quaternion.Euler(CurentXPosition, 0, 0);
         //RightHandTarget.localRotation= Quaternion.Euler(CurentXPosition, 0, 0);
+        }
 
     }
 

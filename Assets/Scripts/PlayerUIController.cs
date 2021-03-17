@@ -5,17 +5,19 @@ using UnityEngine;
 public class PlayerUIController : MonoBehaviour
 {
     public GameObject InventoryPanel;
-    public GameObject QuickSlotsP;
-    public GameObject ChestPanel;
+   
    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && StaticVariables.CanMove)
         {
             InventoryPanel.SetActive(!InventoryPanel.activeSelf);
-            QuickSlotsP.SetActive(true);
-            ChestPanel.SetActive(false);
-
+            
+            Cursor.visible = !Cursor.visible;
         }
+    }
+     void Start()
+    {
+        Cursor.visible = false;
     }
 }

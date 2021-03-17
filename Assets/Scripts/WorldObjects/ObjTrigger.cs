@@ -10,7 +10,7 @@ public class ObjTrigger : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            OnEnterZone?.Invoke();
+           // OnEnterZone?.Invoke();
         }
     }
     private void OnTriggerExit(Collider collision)
