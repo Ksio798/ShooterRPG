@@ -161,12 +161,17 @@ public class InventoryBase : MonoBehaviour
 
                 }
             }
+            else if(InventorySlots[i].InventoryItem != null)
+            {
+                ItemsToSave.Add(InventorySlots[i].InventoryItem.RelatedItem);
+            }
         }
         items = ItemsToSave;
     }
     public void GenerateItemsWithSort()
     {
         List<ItemWithCount> ControlledItems = new List<ItemWithCount>();
+        int index=0;
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].IsStackable)
@@ -190,10 +195,14 @@ public class InventoryBase : MonoBehaviour
                 }
             }
             else
-                InventoryItems.Add(InventoryUtill.GenerateItem(items[i], InventorySlots[i], RootInventoryPanel, ItemPrefab, InfoPanel, ButtonPanel));
+            {
+                InventoryItems.Add(InventoryUtill.GenerateItem(items[i], InventorySlots[index], RootInventoryPanel, ItemPrefab, InfoPanel, ButtonPanel));
+                index++;
+            }
         }
-        for (int i = 0; i < ControlledItems.Count; i++)
+        for (int i = index; i < ControlledItems.Count; i++)
         {
+           //доделать ошибку
             InventoryItems.Add(InventoryUtill.GenerateItem(ControlledItems[i].itemInfo, InventorySlots[i], RootInventoryPanel,
                 ItemPrefab, InfoPanel, ButtonPanel, ControlledItems[i].Count));
         }

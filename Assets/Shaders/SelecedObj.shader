@@ -1,4 +1,4 @@
-Shader "Renderers/NewRenderersCustomPass"
+Shader "Renderers/SelecedObj"
 {
     Properties
     {

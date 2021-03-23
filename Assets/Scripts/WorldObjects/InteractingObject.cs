@@ -41,9 +41,11 @@ public class InteractingObject : MonoBehaviour, IInteractable
     public void OnRay()
     {
         OnEnter();
+        gameObject.layer = LayerMask.NameToLayer("LightingObj");
     }
     public void OutRay()
     {
         Canvas.SetActive(false);
+        gameObject.layer = LayerMask.NameToLayer("InteractionObj");
     }
 }
