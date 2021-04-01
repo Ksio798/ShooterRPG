@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum WeaponShootType {Automatic, semiAutomatic }
 public class WeaponBase : MonoBehaviour
 {
+    public WeaponShootType Type;
+
+    public float CoolDown = 0.05f;
+    protected float CooldownTimer = 0.05f;
     public virtual void Shoot(bool isShooting)
     {
 

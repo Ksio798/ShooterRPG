@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IUsedle
     {
-    public void Use(PlayerConteiner playerController);
+     void Use(PlayerConteiner playerController);
 
     }
 

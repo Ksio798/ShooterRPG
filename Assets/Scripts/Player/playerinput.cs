@@ -7,7 +7,7 @@ public class playerinput : MonoBehaviour
     public PlayerAnimation PlayerAnimation;
     public PlayerMovment PlayerMovementController;
     public PlayerAttack PlayerAttack;
-  
+
     int ButtonPushCount;
 
     void Start()
@@ -18,9 +18,6 @@ public class playerinput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StaticVariables.CanMove)
-        {
-
         Vector2 input = getMovement();
         bool isAttack = getAttack();
         bool isCrouch = getCrouch();
@@ -35,7 +32,6 @@ public class playerinput : MonoBehaviour
         PlayerMovementController.Sprint(isSprint);
         PlayerAnimation.SetStep(input, isSprint, isCrouch, isJump);
         PlayerAnimation.Aim(IsAim, IsScopeAim);
-        }
 
     }
     Vector2 getMovement()

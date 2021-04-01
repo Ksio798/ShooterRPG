@@ -39,19 +39,31 @@ public class PlayerAnimation : MonoBehaviour
             Debug.Log("IK PASS");
             // animation.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
             // animation.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
-            Transform shoulder = anim.GetBoneTransform(HumanBodyBones.Chest);
+            Transform shoulder = anim.GetBoneTransform(HumanBodyBones.RightUpperArm);
             shoulderEuler = shoulder.localEulerAngles;
-            shoulderEuler.z = 180 - LookTarget.eulerAngles.x;
-            anim.SetBoneLocalRotation(HumanBodyBones.Chest, Quaternion.Euler(shoulderEuler));
+            shoulderEuler.x=  LookTarget.eulerAngles.x;
+            anim.SetBoneLocalRotation(HumanBodyBones.RightUpperArm, Quaternion.Euler(shoulderEuler));
 
         }
         else if (layerIndex == 1) 
         {
-            RightHandTarget.position = camera.transform.position -
-                (camera.transform.right * offset.x + camera.transform.up * offset.y + camera.transform.forward * offset.z);
 
-            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-            anim.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
+            Debug.Log("IK PASS");
+            // animation.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            // animation.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
+
+
+
+            Transform shoulder = anim.GetBoneTransform(HumanBodyBones.UpperChest);
+            shoulderEuler = shoulder.localEulerAngles;
+            shoulderEuler.z =180- LookTarget.eulerAngles.x;
+            anim.SetBoneLocalRotation(HumanBodyBones.UpperChest, Quaternion.Euler(shoulderEuler));
+
+            //RightHandTarget.position = camera.transform.position -
+            //    (camera.transform.right * offset.x + camera.transform.up * offset.y + camera.transform.forward * offset.z);
+
+            //anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            //anim.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
         }
         else if (layerIndex == 2)
         {
