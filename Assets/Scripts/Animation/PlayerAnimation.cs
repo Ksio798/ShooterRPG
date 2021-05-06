@@ -36,7 +36,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (layerIndex == 0)
         {
-            Debug.Log("IK PASS");
+            //Debug.Log("IK PASS");
             // animation.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
             // animation.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
             Transform shoulder = anim.GetBoneTransform(HumanBodyBones.RightUpperArm);
@@ -48,7 +48,7 @@ public class PlayerAnimation : MonoBehaviour
         else if (layerIndex == 1) 
         {
 
-            Debug.Log("IK PASS");
+            //Debug.Log("IK PASS");
             // animation.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
             // animation.SetIKPosition(AvatarIKGoal.RightHand, RightHandTarget.position);
 

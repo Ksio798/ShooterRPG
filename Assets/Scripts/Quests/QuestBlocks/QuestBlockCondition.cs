@@ -8,7 +8,7 @@ namespace Assets.Scripts.Quests.QuestBlocks
 {
     public class QuestBlockCondition: QuestBlock
     {
-        protected System.Func<bool> condition;
+        public System.Func<bool> condition;
         public override bool TryPerfom()
         {
             if (condition == null)

@@ -14,7 +14,9 @@ public class QuestController : MonoBehaviour
     public GameObject UiPanel;
     public TextMeshProUGUI UIDesText;
     public TextMeshProUGUI UINameText;
-    
+    public InventoryController PlayerInv;
+    public GameObject EndQuestText;
+
     private void Start()
     {
        BaseQuest[] q = FindObjectsOfType<BaseQuest>();
@@ -41,7 +43,7 @@ public class QuestController : MonoBehaviour
         UiPanel.SetActive(true);
         UINameText.text = quest.QuestName;
         UIDesText.text = quest.QuestDescription;
-        StartCoroutine(WaitToNewQuest());
+        StartCoroutine(WaitToNewQuest(UiPanel));
         Quests.Add(quest);
     }
     void OnStopQuest(BaseQuest quest)
@@ -51,9 +53,11 @@ public class QuestController : MonoBehaviour
     void OnEndQuest(BaseQuest quest)
     {
         UiPanel.SetActive(false);
-        
-
+        PlayerInv.AddItems(quest.Prizes);
         Quests.Remove(quest);
+        EndQuestText.SetActive(true);
+        StartCoroutine(WaitToNewQuest(EndQuestText));
+
     }
     public void AddAllOnPanel()
     {
@@ -91,12 +95,12 @@ public class QuestController : MonoBehaviour
         UINameText.text = Quests[index].QuestName;
         UIDesText.text = Quests[index].QuestDescription;
         QuestPanel.SetActive(false);
-        Cursor.visible = !Cursor.visible;
+        Cursor.visible = false;
     }
-    IEnumerator WaitToNewQuest()
+    IEnumerator WaitToNewQuest(GameObject gm)
     {
         yield return new WaitForSeconds(2);
-        UiPanel.SetActive(false);
+        gm.SetActive(false);
     }
 
 

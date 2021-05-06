@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class InteractingObject : MonoBehaviour, IInteractable
 {
-   
+    public event System.Action OnInteract;
     public GameObject Canvas;
     public bool NeedKey;
     public bool NeedInv;
@@ -17,7 +17,7 @@ public class InteractingObject : MonoBehaviour, IInteractable
     public bool InteractingByKeyPressing { get { return NeedKey; } }
     public virtual void Interact(GameObject Player)
     {
-       
+        OnInteract?.Invoke();
     }
     public bool IsNeedInventory { get { return NeedInv; } }
     public virtual void OnEnter()

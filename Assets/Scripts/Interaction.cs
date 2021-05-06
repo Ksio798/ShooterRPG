@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-   
+
     // GameObject interactingObject; // ссылка на объект, который находится радом, чтобы можно было с ним взаимодействовать
     List<GameObject> interactingObjects = new List<GameObject>();
     GameObject inSight;
@@ -23,14 +23,14 @@ public class Interaction : MonoBehaviour
 
             if (interactingObjects.Contains(objectInt.gameObject))
             {
-                
+
 
                 inSight = objectInt.gameObject;
                 inSight.GetComponent<InteractingObject>().OnRay();
                 // Debug.Log(inSight.name);
             }
         }
-        else if (inSight!=null)
+        else if (inSight != null)
         {
             inSight.GetComponent<InteractingObject>().OutRay();
             inSight = null;
@@ -56,7 +56,7 @@ public class Interaction : MonoBehaviour
         {
             StaticVariables.CanMove = !StaticVariables.CanMove;
             Cursor.visible = !Cursor.visible;
-            
+
             OnInteracting?.Invoke(inSight);
         }
         interactable.Interact(gameObject);
@@ -80,7 +80,7 @@ public class Interaction : MonoBehaviour
                 else// иначе запомнить объект столкновения
                 {
 
-                    Debug.Log(collision.gameObject.name);
+                   
                     interactingObjects.Add(interactableGameObject.gameObject);
 
 
@@ -96,17 +96,21 @@ public class Interaction : MonoBehaviour
 
 
         InteractingObject interactingObject = collision.transform.GetComponentInParent<InteractingObject>();
-        if (interactingObjects.Contains(interactingObject.gameObject))
+        if (interactingObject != null)
         {
-            interactingObjects.Remove(interactingObject.gameObject);
-        }
-        if (interactingObject.gameObject == inSight)
-        {
-            inSight = null;
-        }
-        if (collision == currentCollider)
-        {
-            currentCollider = null;
+
+            if (interactingObjects.Contains(interactingObject.gameObject))
+            {
+                interactingObjects.Remove(interactingObject.gameObject);
+            }
+            if (interactingObject.gameObject == inSight)
+            {
+                inSight = null;
+            }
+            if (collision == currentCollider)
+            {
+                currentCollider = null;
+            }
         }
     }
 

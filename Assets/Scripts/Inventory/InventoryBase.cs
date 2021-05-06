@@ -5,7 +5,7 @@ public class ItemWithCount
 {
     public Item itemInfo;
     public int Count;
-   public ItemWithCount(Item item, int count)
+    public ItemWithCount(Item item, int count)
     {
         itemInfo = item;
         Count = count;
@@ -25,7 +25,7 @@ public class InventoryBase : MonoBehaviour
     public RectTransform InfoPanel;
     public RectTransform ButtonPanel;
     public UsingItems Owner;
-
+    public event System.Action<Item, bool> OnInventoryChange;
 
     // подписка на события от предметов 
     public virtual void SubscribeToItemEvents()
@@ -56,13 +56,16 @@ public class InventoryBase : MonoBehaviour
         {
             InventoryItems.Add(item);
             items.Add(item.RelatedItem);
+            OnInventoryChange?.Invoke(item.RelatedItem, true);
 
         }
     }
     protected virtual void OnItemRemoved(InventorySlot s, InventoryItem item)
     {
 
-        InventoryItems.Remove(item); items.Remove(item.RelatedItem);
+        InventoryItems.Remove(item);
+        items.Remove(item.RelatedItem);
+        OnInventoryChange?.Invoke(item.RelatedItem, false);
     }
 
     //получить первый не занятый слот 
@@ -113,13 +116,28 @@ public class InventoryBase : MonoBehaviour
             if (InventorySlots[i].InventoryItem == null)
             {
                 InventoryItem itemInv = InventoryUtill.GenerateItem(item, InventorySlots[i], RootInventoryPanel, ItemPrefab, InfoPanel, ButtonPanel);
-              
+
                 break;
             }
         }
     }
     public virtual void AddItems(List<Item> items)
     {
+        for (int j = 0; j < items.Count; j++)
+        {
+            for (int i = 0; i < InventorySlots.Count; i++)
+            {
+                if (InventorySlots[i].InventoryItem == null)
+                {
+                    InventoryItem itemInv = InventoryUtill.GenerateItem(items[j], InventorySlots[i], RootInventoryPanel, ItemPrefab, InfoPanel, ButtonPanel);
+
+                    break;
+                }
+            }
+
+        }
+
+
     }
     public virtual bool ContainsItem(Item item)
     {
@@ -132,18 +150,18 @@ public class InventoryBase : MonoBehaviour
     }
     public void ItemDestroy(InventoryItem item)
     {
-       // int indexItem = items.IndexOf(item.RelatedItem);
+        // int indexItem = items.IndexOf(item.RelatedItem);
         items.Remove(item.RelatedItem);
-//int indexInvI = InventoryItems.IndexOf(item);
+        //int indexInvI = InventoryItems.IndexOf(item);
         InventoryItems.Remove(item);
-       
+
     }
 
     public GameObject LoadPrefab(Item LoadedItem)
     {
 
 
-       // GameObject prefab = Resources.Load(LoadedItem.FileName + ".prefab") as GameObject;
+        // GameObject prefab = Resources.Load(LoadedItem.FileName + ".prefab") as GameObject;
         GameObject prefab = Resources.Load(LoadedItem.FileName) as GameObject;
         GameObject copy = Object.Instantiate(prefab);
         return copy;
@@ -161,7 +179,7 @@ public class InventoryBase : MonoBehaviour
 
                 }
             }
-            else if(InventorySlots[i].InventoryItem != null)
+            else if (InventorySlots[i].InventoryItem != null)
             {
                 ItemsToSave.Add(InventorySlots[i].InventoryItem.RelatedItem);
             }
@@ -171,7 +189,7 @@ public class InventoryBase : MonoBehaviour
     public void GenerateItemsWithSort()
     {
         List<ItemWithCount> ControlledItems = new List<ItemWithCount>();
-        int index=0;
+        int index = 0;
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].IsStackable)
@@ -202,7 +220,7 @@ public class InventoryBase : MonoBehaviour
         }
         for (int i = index; i < ControlledItems.Count; i++)
         {
-           //доделать ошибку
+            //доделать ошибку
             InventoryItems.Add(InventoryUtill.GenerateItem(ControlledItems[i].itemInfo, InventorySlots[i], RootInventoryPanel,
                 ItemPrefab, InfoPanel, ButtonPanel, ControlledItems[i].Count));
         }

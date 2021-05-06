@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Quests;
+using Assets.Scripts.Quests.QuestBlocks;
 public class BaseQuest : MonoBehaviour
 {
 

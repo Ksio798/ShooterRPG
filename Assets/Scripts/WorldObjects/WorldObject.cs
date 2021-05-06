@@ -8,6 +8,7 @@ public class WorldObject : InteractingObject
     public Item ConteinItem;
     public override void Interact(GameObject Player)
     {
+        base.Interact(Player);
         InventoryController inventory = Player.GetComponent<PlayerConteiner>().Inventory;
         inventory.AddItem(ConteinItem);
         Destroy(gameObject);

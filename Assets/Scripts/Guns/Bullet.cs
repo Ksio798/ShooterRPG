@@ -6,14 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public LayerMask TargetMask;
     public GameObject ImpactPrefab;
+    public float Damage;//there
     private void OnCollisionEnter(Collision collision)
     {
         if((TargetMask.value & 1<<collision.gameObject.layer)>0)
         {
-            ICharecter e = collision.transform.GetComponent<ICharecter>();
+            //Члима, нам не нужен интерфейс ICharecter. У нас есть класс Character для таких целей
+            //Я изменил скрипт с ипользованием класса, это удобнее (there)
+            Character e = collision.transform.GetComponent<Character>();//there
             if(e!=null)
             {
-                e.TakeDamage();
+                e.TakeDamage(Damage);//there
             }
             else
             {
