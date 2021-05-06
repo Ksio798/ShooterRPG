@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public WeaponController currentweapon;
+    public WeaponBase currentweapon;
     public void Attack(bool isAttack, bool constant)
     {
         if (currentweapon == null)

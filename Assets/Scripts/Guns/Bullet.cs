@@ -8,23 +8,29 @@ public class Bullet : MonoBehaviour
     public GameObject ImpactPrefab;
     private void OnCollisionEnter(Collision collision)
     {
-        if((TargetMask.value & 1<<collision.gameObject.layer)>0)
+        Debug.Log("Bullet hit object 0");
+        if ((TargetMask.value & 1 << collision.gameObject.layer) > 0)
         {
+            Debug.Log("Bullet hit object 1");
             ICharecter e = collision.transform.GetComponent<ICharecter>();
-            if(e!=null)
+            if (e != null)
             {
                 e.TakeDamage();
             }
             else
             {
-                SpawnPref(collision.GetContact(0).point, collision.GetContact(0).normal);
+
+                Debug.Log("Bullet hit object");
+              
+                SpawnPref(collision.GetContact(0).point, -collision.GetContact(0).normal);
             }
         }
-        void SpawnPref(Vector3 pos,Vector3 fow)
-        {
-            GameObject impact = Instantiate(ImpactPrefab);
-            impact.transform.position = pos;
-            impact.transform.forward = fow;
-        }
+
+    }
+    void SpawnPref(Vector3 pos, Vector3 forward)
+    {
+        GameObject impact = Instantiate(ImpactPrefab);
+        impact.transform.position = pos-forward*0.1f;
+        impact.transform.forward = forward;
     }
 }
