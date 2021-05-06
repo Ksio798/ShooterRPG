@@ -25,13 +25,14 @@ public class playerinput : MonoBehaviour
         bool isJump = getJump();
         bool IsAim = SetAim();
         bool IsScopeAim = SetScopeAim();
-        
+
         PlayerMovementController.crouch(isCrouch);
         PlayerMovementController.Step(input);
         PlayerMovementController.jump(isJump);
         PlayerMovementController.Sprint(isSprint);
-        PlayerAnimation.SetStep(input, isSprint, isCrouch, isJump);
-        PlayerAnimation.Aim(IsAim, IsScopeAim);
+        //PlayerAnimation.SetStep(input, isSprint, isCrouch, isJump);
+        //PlayerAnimation.Aim(IsAim, IsScopeAim);
+        PlayerAttack.Attack(isAttack, true);
 
     }
     Vector2 getMovement()
@@ -51,7 +52,7 @@ public class playerinput : MonoBehaviour
 
     bool getAttack()
     {
-        return Input.GetButtonUp("Fire1");
+        return Input.GetButton("Fire1");
     }
     bool SetAim()
     {

@@ -12,9 +12,9 @@ public class CameraLook : MonoBehaviour
     [HideInInspector]
     public float TargetYRotation = 0;
     [HideInInspector]
-    public float CurentXPosition;
+    public float CurrentXRotation;
     [HideInInspector]
-    public float CurentYPosition;
+    public float CurrentYRotation;
 
     public float XrotationSpeed;
 
@@ -35,18 +35,19 @@ public class CameraLook : MonoBehaviour
         TargetXRotation = Mathf.Clamp(TargetXRotation, -70, 90);
         TargetYRotation += mouseX;
 
-        CurentYPosition = Mathf.SmoothDamp(CurentYPosition, TargetYRotation, ref rotationYvelocity, YRotationSpeed);
-        CurentXPosition = Mathf.SmoothDamp(CurentXPosition, TargetXRotation, ref rotationXvelocity, XrotationSpeed);
+        CurrentYRotation = Mathf.SmoothDamp(CurrentYRotation, TargetYRotation, ref rotationYvelocity, YRotationSpeed);
+        CurrentXRotation = Mathf.SmoothDamp(CurrentXRotation, TargetXRotation, ref rotationXvelocity, XrotationSpeed);
         
-        Player.transform.rotation = Quaternion.Euler(0, CurentYPosition, 0);
-        Head.transform.localRotation = Quaternion.Euler(CurentXPosition, 0, 0);
-        //RightHandTarget.localRotation= Quaternion.Euler(CurentXPosition, 0, 0);
+        Player.transform.rotation = Quaternion.Euler(0, CurrentYRotation, 0);
+        Head.transform.localRotation = Quaternion.Euler(CurrentXRotation, 0, 0);
+            transform.localRotation = Quaternion.Euler(CurrentXRotation, 0, 0);
+            //RightHandTarget.localRotation= Quaternion.Euler(CurentXPosition, 0, 0);
         }
 
     }
 
     private void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, CurentYPosition, 0);
+       // transform.rotation = Quaternion.Euler(transform.eulerAngles.x, CurentYPosition, 0);
     }
 }
