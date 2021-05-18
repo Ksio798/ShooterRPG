@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet3 : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public LayerMask TargetMask;
     public GameObject ImpactPrefab;
@@ -21,7 +21,7 @@ public class Bullet3 : MonoBehaviour
             {
 
                 Debug.Log("Bullet hit object");
-              
+
                 SpawnPref(collision.GetContact(0).point, -collision.GetContact(0).normal);
             }
         }
@@ -30,7 +30,7 @@ public class Bullet3 : MonoBehaviour
     void SpawnPref(Vector3 pos, Vector3 forward)
     {
         GameObject impact = Instantiate(ImpactPrefab);
-        impact.transform.position = pos-forward*0.1f;
+        impact.transform.position = pos - forward * 0.1f;
         impact.transform.forward = forward;
     }
 }

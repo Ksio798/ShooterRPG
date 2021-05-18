@@ -54,7 +54,7 @@ public class Interaction : MonoBehaviour
 
         if (interactable.IsNeedInventory && inSight != null)
         {
-            StaticVariables.CanMove = !StaticVariables.CanMove;
+            StaticVariables.InMeny = !StaticVariables.InMeny;
             Cursor.visible = !Cursor.visible;
 
             OnInteracting?.Invoke(inSight);

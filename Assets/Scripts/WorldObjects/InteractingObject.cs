@@ -22,13 +22,13 @@ public class InteractingObject : MonoBehaviour, IInteractable
     public bool IsNeedInventory { get { return NeedInv; } }
     public virtual void OnEnter()
     {
-        TextMeshProUGUI text = Canvas.GetComponentInChildren<TextMeshProUGUI>();
-        if (text != null)
-        {
+        //TextMeshProUGUI text = Canvas.GetComponentInChildren<TextMeshProUGUI>();
+        //if (text != null)
+        //{
 
-            SetText(text);
-        }
-        Canvas.SetActive(true);
+        //    SetText(text);
+        //}
+        //Canvas.SetActive(true);
     }
     public virtual void OnExit()
     {
@@ -40,7 +40,13 @@ public class InteractingObject : MonoBehaviour, IInteractable
     } 
     public void OnRay()
     {
-        OnEnter();
+        TextMeshProUGUI text = Canvas.GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null)
+        {
+
+            SetText(text);
+        }
+        Canvas.SetActive(true);
         gameObject.layer = LayerMask.NameToLayer("LightingObj");
     }
     public void OutRay()

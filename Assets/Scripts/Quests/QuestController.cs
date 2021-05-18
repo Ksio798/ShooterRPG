@@ -29,7 +29,7 @@ public class QuestController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) && StaticVariables.CanMove)
+        if (Input.GetKeyDown(KeyCode.I) && StaticVariables.InMeny)
         {
             QuestPanel.SetActive(!QuestPanel.activeSelf);
             Cursor.visible = !Cursor.visible;
