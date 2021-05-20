@@ -9,7 +9,7 @@ public class PlayerUIController : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && StaticVariables.CanMove)
+        if (Input.GetKeyDown(KeyCode.Tab) && StaticVariables.InMeny)
         {
             InventoryPanel.SetActive(!InventoryPanel.activeSelf);
             

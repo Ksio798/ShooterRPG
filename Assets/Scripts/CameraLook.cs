@@ -26,7 +26,7 @@ public class CameraLook : MonoBehaviour
    
     private void Update()
     {
-        if (StaticVariables.CanMove)
+        if (StaticVariables.InMeny)
         {
 
         float mouseX = Input.GetAxis("Mouse X") * sensetivity * Time.deltaTime;

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class StaticVariables 
 {
-    public static bool CanMove = true;
+    public static bool InMeny = true;
 }
