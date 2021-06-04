@@ -493,7 +493,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		controls = GameObject.FindObjectOfType (typeof(MSSceneControllerFree))as MSSceneControllerFree;
 		if (!controls) {
 			Debug.LogError ("There must be an object with the 'MSSceneController' component so that vehicles can be managed.");
-			this.transform.gameObject.SetActive (false);
+			this.transform.gameObject.SetActive (true);
 			return;
 		}
 		//

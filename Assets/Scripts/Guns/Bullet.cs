@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet3 : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public LayerMask TargetMask;
     public GameObject ImpactPrefab;
